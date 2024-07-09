@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('images/39012937_443329496171849_4055162607391211520_n.jpg');
+            /* Ruta a tu imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #fff;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.5s;
+            text-align: center;
+            /* Centrar contenido */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .video-player {
+            margin-top: 40px;
+            width: 90%;
+            height: 400px;
+            /* Altura adecuada para el video */
+            border: none;
+            /* Quitar borde */
+            border-radius: 8px;
+            overflow: hidden;
+            margin-left: 25px;
+            /* Ocultar bordes adicionales en Firefox */
+        }
+
+        .video-list {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .video-list li {
+            margin: 0 10px;
+        }
+
+        .video-list button {
+            width: 50px;
+            /* Ancho igual al alto para hacer un círculo perfecto */
+            height: 50px;
+            /* Altura igual al ancho para hacer un círculo perfecto */
+            border-radius: 50%;
+            /* Hace que el borde sea circular */
+            border: none;
+            cursor: pointer;
+            background-color: #288a35;
+            /* Color de fondo del botón */
+            color: #fff;
+            /* Color del texto */
+            font-size: 14px;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Sombra para efecto de elevación */
+            margin: 5px;
+            /* Espaciado entre los botones */
+        }
+
+        .video-list button:hover {
+            background-color: #71c583;
+            transform: scale(1.05);
+            border-radius: 80px;
+            /* Escalar ligeramente al pasar el mouse */
+        }
+
+        .image {
+            width: 15px;
+            height: 15px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a class="navbar-brand logo-image" href="index.html"><img src="images/CAÑETE SI SEÑOR (1).png"
+            alt="alternative"></a>
+
+    <!-- El modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <iframe id="videoPlayer" class="video-player" width="640" height="360"
+                src="https://drive.google.com/file/d/1PzcWmY_PzHJPUsNeoYAZlAylE6yTWcYz/preview" frameborder="0"
+                allowfullscreen></iframe>
+            <ul class="video-list">
+                <li><button
+                        onclick="changeVideo('https://drive.google.com/file/d/1PzcWmY_PzHJPUsNeoYAZlAylE6yTWcYz/preview')">1</button>
+                </li>
+                <li><button
+                        onclick="changeVideo('https://drive.google.com/file/d/1EtOBHWlxBKIR_48omr25SSF-08rqnPGm/preview')">2</button>
+                </li>
+                <li><button
+                        onclick="changeVideo('https://drive.google.com/file/d/11_PPYx3aXQEpmzt-tvIl60jNj5BArcLz/preview')">3</button>
+                </li>
+                <li><button
+                        onclick="changeVideo('https://drive.google.com/file/d/1jSNS3bfUTTkv4l_5gelbbskFAw-QojOR/preview')">4</button>
+                </li>
+                <li><button
+                        onclick="changeVideo('https://drive.google.com/file/d/1nq4QECy2JxVW2t_rLyFnJf7XkHOQfrU-/preview')">5</button>
+                </li>
+                <li><button
+                        onclick="changeVideo('https://drive.google.com/file/d/1uB8REU_NpoYMo4ejztQGWVQKxTE5UYJK/preview')">6</button>
+                </li>
+                <li><button
+                        onclick="changeVideo('https://drive.google.com/file/d/19Kowz4UGIR8tdNoVIv_nbqR79ZrCzYzw/preview')">7</button>
+                </li>
+                <li><button
+                        onclick="changeVideo('https://drive.google.com/file/d/1JSDJLcd9gvdTP6vMMA9rI4q5sV1ru4NJ/preview')">8</button>
+                </li>
+                <li><button
+                        onclick="changeVideo('https://drive.google.com/file/d/1HQ01GOAwU_KFb3pFI8GQoLIqD4_49czV/preview')">9</button>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Obtener el modal
+        var modal = document.getElementById("myModal");
+
+        // Mostrar el modal cuando la página se carga
+        window.onload = function () {
+            modal.style.display = "block";
+        }
+
+        // Función para cerrar el modal y redirigir a la página principal
+        function closeModal() {
+            modal.style.display = "none"; // Reemplaza con la ruta correcta
+        }
+
+        // Función para cambiar el video
+        function changeVideo(videoSrc) {
+            var videoPlayer = document.getElementById('videoPlayer');
+            videoPlayer.src = videoSrc;
+        }
+    </script>
+
+</body>
+
+</html>
